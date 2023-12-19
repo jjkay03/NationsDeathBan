@@ -1,0 +1,4 @@
+# NationsDeathBan Config
+
+# Summon lightning on player death (default: true)
+lightning-on-death: true
