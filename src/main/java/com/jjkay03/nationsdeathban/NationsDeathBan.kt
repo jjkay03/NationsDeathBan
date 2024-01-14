@@ -13,12 +13,12 @@ import java.util.logging.Logger
 class NationsDeathBan : JavaPlugin(), Listener {
 
     companion object {
-        lateinit var instance: NationsDeathBan // Define a companion object to hold the instance
-        lateinit var logger: Logger // Define a companion object to hold logger
-            private set
-    }
+        lateinit var instance: NationsDeathBan; private set // Define a companion object to hold the instance
+        lateinit var logger: Logger; private set // Define a companion object to hold logger
+        var LIGHTNING_ON_DEATH = true
+        var BAN_MESSAGE = ""
 
-    var lightningOnDeath = true
+    }
 
     // Plugin startup logic
     override fun onEnable() {
@@ -36,7 +36,8 @@ class NationsDeathBan : JavaPlugin(), Listener {
         reloadConfig() // Reload the configuration
 
         // Get config settings
-        lightningOnDeath = config.getBoolean("lightning-on-death", true)
+        LIGHTNING_ON_DEATH = config.getBoolean("lightning-on-death", true)
+        BAN_MESSAGE =config.getString("ban-message") ?: ""
     }
 
     // Plugin shutdown logic
@@ -77,7 +78,7 @@ class NationsDeathBan : JavaPlugin(), Listener {
         // Check if the player has the bypass permission
         if (!deadPlayer.hasPermission("nations.deathban.bypass")) {
             // Ban the player with the specified reason
-            deadPlayer.banPlayer("Your fight is over.")
+            deadPlayer.banPlayer(BAN_MESSAGE)
 
             // Play the sound to all players on the server
             Bukkit.getOnlinePlayers().forEach { player ->
@@ -85,7 +86,7 @@ class NationsDeathBan : JavaPlugin(), Listener {
             }
 
             // Summon lightning at the location of the player's death
-            if (lightningOnDeath) {
+            if (LIGHTNING_ON_DEATH) {
                 val world: World = location.world
                 world.strikeLightningEffect(location)
             }

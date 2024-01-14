@@ -2,3 +2,6 @@
 
 # Summon lightning on player death (default: true)
 lightning-on-death: true
+
+# Ban message
+ban-message: "Your fight is over."
