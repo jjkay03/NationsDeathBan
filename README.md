@@ -1,5 +1,7 @@
 # <img src="https://emojis.slackmojis.com/emojis/images/1643510883/48608/banhammer.png?1643510883" width="30"/> NationsDeathBan
 
+[<img alt="modrinth" height="40" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/available/modrinth_46h.png">](https://modrinth.com/plugin/nationsdeathban)
+
 NationsDeathBan is a Minecraft server plugin I made for my event Nations. 
 
 What it does is ban players when they die, it also hides the killer and strikes lightning at the death location.
