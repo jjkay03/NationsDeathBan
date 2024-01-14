@@ -23,3 +23,4 @@ When a player dies:
 
 ### Config
 - `lightning-on-death: true` - When this is set to true lightning will strike on death.
+- `death-message: "Your fight is over."` - Set the message that should be used when a player gets banned after they die.
